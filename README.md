@@ -12,7 +12,7 @@ The go command moves the plyer in the specified direction
 The quit command quits the game.  
 The help command displays a help menu with important information and explains the scenario  
 There are five rooms in the scenario  
-![Map of the five rooms](./map.png)  
+![Map of the five rooms](./map.png "Map"")  
 
 Q2:  
 The *Game* class creates and initialises all the others, as well as excecutes the commands returned by the parser and starts the game.  

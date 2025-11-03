@@ -33,24 +33,30 @@ public class Game
      */
     private void createRooms()
     {
-        Room outside, theater, pub, lab, office;
+        Room hub, corridor, departures, maintenanceTunnel, ticketing, store, storeroom, washroom;
       
         // create the rooms
-        outside = new Room("outside the main entrance of the university");
-        theater = new Room("in a lecture theater");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        hub = new Room("Main Hub of the Station");
+        corridor = new Room("A long corridor. A sign above says Departures");
+        departures = new Room("Many trains come through here.");
+        maintenanceTunnel = new Room("A tunnel that runs parrallel to the tracks. A key can be seen shining under a light, an employee must have dropped it.");
+        ticketing = new Room("A room containing stations that allow the purchasing of tickets. A one-way costs $3.50");
+        store = new Room("A convenience store.");
+        storeroom = new Room("Employees enter here for extra supplies. A sign above the door reads: Employees Only!");
+        washroom = new Room("Contains a sink with low pressure. A $0.25 coins lies on the floor");
         
         // initialise room exits
-        outside.setExits(null, theater, lab, pub);
-        theater.setExits(null, null, null, outside);
-        pub.setExits(null, outside, null, null);
-        lab.setExits(outside, office, null, null);
-        office.setExits(null, null, null, lab);
+        hub.setExits(null, store, ticketing, corridor);
+        corridor.setExits(null, hub, null, departures);
+        departures.setExits(null, corridor, null, maintenanceTunnel);
+        maintenanceTunnel.setExits(null, departures, null, null);
+        ticketing.setExits(hub, null, null, null);
+        store.setExits(null, washroom, storeroom, hub);
+        storeroom.setExits(store, null, null, null);
+        washroom.setExits(null, null, null, store);
 
         // start game outside
-        currentRoom = outside;  
+        currentRoom = hub;  
     }
 
     /**
