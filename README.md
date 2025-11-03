@@ -1,4 +1,4 @@
-#Zuul
+# Zuul
 ---
 ## Part 1    -   Zuul Bad
 
@@ -12,7 +12,7 @@ The go command moves the plyer in the specified direction
 The quit command quits the game.  
 The help command displays a help menu with important information and explains the scenario  
 There are five rooms in the scenario  
-[Here is a map of the five rooms](./map)  
+[Here is a map of the five rooms](./map.png)  
 
 Q2:  
 The *Game* class creates and initialises all the others, as well as excecutes the commands returned by the parser and starts the game.  
