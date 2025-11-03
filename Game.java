@@ -36,14 +36,14 @@ public class Game
         Room hub, corridor, departures, maintenanceTunnel, ticketing, store, storeroom, washroom;
       
         // create the rooms
-        hub = new Room("Main Hub of the Station");
-        corridor = new Room("A long corridor. A sign above says Departures");
-        departures = new Room("Many trains come through here.");
-        maintenanceTunnel = new Room("A tunnel that runs parrallel to the tracks. A key can be seen shining under a light, an employee must have dropped it.");
-        ticketing = new Room("A room containing stations that allow the purchasing of tickets. A one-way costs $3.50");
-        store = new Room("A convenience store.");
-        storeroom = new Room("Employees enter here for extra supplies. A sign above the door reads: Employees Only!");
-        washroom = new Room("Contains a sink with low pressure. A $0.25 coins lies on the floor");
+        hub = new Room("in the main hub of the Station");
+        corridor = new Room("in a long corridor. A sign above says Departures");
+        departures = new Room("at departures. Many trains come through here.");
+        maintenanceTunnel = new Room("in a tunnel that runs parrallel to the tracks. A key can be seen shining under a light, an employee must have dropped it.");
+        ticketing = new Room("in a center containing stations that allow the purchasing of tickets. A one-way costs $3.50");
+        store = new Room("at a convenience store.");
+        storeroom = new Room("in a storeroom. Employees enter here for extra supplies. A sign above the door reads: Employees Only!");
+        washroom = new Room("in a washroom. It Contains a sink with low pressure. A $0.25 coins lies on the floor");
         
         // initialise room exits
         hub.setExits(null, store, ticketing, corridor);
@@ -76,6 +76,10 @@ public class Game
         }
         System.out.println("Thank you for playing.  Good bye.");
     }
+    
+    private void printLocationInfo(){
+        System.out.print(currentRoom.getExitString());
+    }
 
     /**
      * Print out the opening message for the player.
@@ -89,18 +93,7 @@ public class Game
         System.out.println();
         System.out.println("You are " + currentRoom.getDescription());
         System.out.print("Exits: ");
-        if(currentRoom.northExit != null) {
-            System.out.print("north ");
-        }
-        if(currentRoom.eastExit != null) {
-            System.out.print("east ");
-        }
-        if(currentRoom.southExit != null) {
-            System.out.print("south ");
-        }
-        if(currentRoom.westExit != null) {
-            System.out.print("west ");
-        }
+        printLocationInfo();
         System.out.println();
     }
 
@@ -165,16 +158,16 @@ public class Game
         // Try to leave current room.
         Room nextRoom = null;
         if(direction.equals("north")) {
-            nextRoom = currentRoom.northExit;
+            nextRoom = currentRoom.getExit("north");
         }
         if(direction.equals("east")) {
-            nextRoom = currentRoom.eastExit;
+            nextRoom = currentRoom.getExit("east");
         }
         if(direction.equals("south")) {
-            nextRoom = currentRoom.southExit;
+            nextRoom = currentRoom.getExit("south");
         }
         if(direction.equals("west")) {
-            nextRoom = currentRoom.westExit;
+            nextRoom = currentRoom.getExit("west");
         }
 
         if (nextRoom == null) {
@@ -184,18 +177,7 @@ public class Game
             currentRoom = nextRoom;
             System.out.println("You are " + currentRoom.getDescription());
             System.out.print("Exits: ");
-            if(currentRoom.northExit != null) {
-                System.out.print("north ");
-            }
-            if(currentRoom.eastExit != null) {
-                System.out.print("east ");
-            }
-            if(currentRoom.southExit != null) {
-                System.out.print("south ");
-            }
-            if(currentRoom.westExit != null) {
-                System.out.print("west ");
-            }
+            printLocationInfo();
             System.out.println();
         }
     }
