@@ -16,6 +16,7 @@ There are five rooms in the scenario
 ![Map of the five rooms](./map.png "Map")  
 
 
+
 Q2:  
 The *Game* class creates and initialises all the others, as well as excecutes the commands returned by the parser and starts the game.  
 The *Parser* class takes the user's input and transforms it into an object of the Command class by comparing it to the list of command words stored in the CommandWords class, if no match is found, the parse will return a command object marked as unknown.  
