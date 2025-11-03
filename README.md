@@ -23,4 +23,5 @@ The *Parser* class takes the user's input and transforms it into an object of th
 The *Command* class holds the two strings that make up the issued command.  
 The *CommandWords* class stores the list of known command words as an array of type String[]. It has methods that allow it to compare input with the array.  
 The *Room* class represents the rooms, it specifies a room's description and exits.  
+
 ---
