@@ -46,14 +46,36 @@ public class Game
         washroom = new Room("in a washroom. It Contains a sink with low pressure. A $0.25 coins lies on the floor");
         
         // initialise room exits
-        hub.setExits(null, store, ticketing, corridor);
-        corridor.setExits(null, hub, null, departures);
-        departures.setExits(null, corridor, null, maintenanceTunnel);
-        maintenanceTunnel.setExits(null, departures, null, null);
-        ticketing.setExits(hub, null, null, null);
-        store.setExits(null, washroom, storeroom, hub);
-        storeroom.setExits(store, null, null, null);
-        washroom.setExits(null, null, null, store);
+        
+        //Hub
+        hub.setExits("east", store); // east
+        hub.setExits("south", ticketing); // south
+        hub.setExits("west", corridor); // west
+        
+        // Corridor
+        corridor.setExits("east", hub); // east
+        corridor.setExits("west", departures); // west
+        
+        // Departures
+        departures.setExits("east", corridor); // east
+        departures.setExits("west", maintenanceTunnel); // west
+        
+        // Maintenance Tunnel
+        maintenanceTunnel.setExits("east", departures); // east
+        
+        // Ticketing
+        ticketing.setExits("north", hub); // north
+        
+        // Store
+        store.setExits("east", washroom); // east
+        store.setExits("south", storeroom); // south
+        store.setExits("west", hub); // west
+
+        // Storeroom
+        storeroom.setExits("north", store); // north
+        
+        // Washroom
+        washroom.setExits("west", store); // west
 
         // start game outside
         currentRoom = hub;  
