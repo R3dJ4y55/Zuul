@@ -28,6 +28,9 @@ The *CommandWords* class stores the list of known command words as an array of t
 
 The *Room* class represents the rooms, it specifies a room's description and exits.  
 
+Q9:
+
+
 
 
 ---

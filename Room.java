@@ -53,10 +53,8 @@ public class Room
     /**
      * Define the exits of this room.  Every direction either leads
      * to another room or is null (no exit there).
-     * @param north The north exit.
-     * @param east The east east.
-     * @param south The south exit.
-     * @param west The west exit.
+     * @param dir The direction of the neighboring room (north, east, south, west, up, down)
+     * @param neighbor The neighboring room
      */
     public void setExits(String dir, Room neighbor) 
     {
