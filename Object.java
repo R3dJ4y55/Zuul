@@ -18,6 +18,10 @@ public class Object
         this.value = value;
     }
     
+    public String getTitle(){
+        return title;
+    }
+    
     public int getWeight(){
         return weight;
     }

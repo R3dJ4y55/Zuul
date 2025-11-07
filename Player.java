@@ -37,13 +37,16 @@ public class Player
     }
     
     public void take(Object obj){
-        if (obj.isTaken() == false || (currentWeight + obj.getWeight()) <= MAX_WEIGHT)
-        for (int i =0; i < inventory.length; i++){
-            if(inventory[i] != null){
-                inventory[i] = obj;
+        if (obj != null){
+            if (obj.isTaken() == false && (currentWeight + obj.getWeight()) <= MAX_WEIGHT)
+            for (int i =0; i < inventory.length; i++){
+                if(inventory[i] != null){
+                    inventory[i] = obj;
+                }
             }
+            currentWeight += obj.getWeight();
+            System.out.println("Picked up: " + obj);
         }
-        currentWeight += obj.getWeight();
     }
     
     public void drop(Object obj){
@@ -53,5 +56,14 @@ public class Player
             }
         }
         currentWeight -= obj.getWeight();
+    }
+    
+    public Object toObject(String name){
+        for (Object obj : currentRoom.getObjects()){
+            if (obj.equals(name.trim())){
+                return obj;
+            }
+        }
+        return null;
     }
 }

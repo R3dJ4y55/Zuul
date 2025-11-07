@@ -19,6 +19,7 @@ public class Room
 {
     private String description;
     private HashMap<String, Room> exits;
+    private Object[] objects = {};
 
     /**
      * Create a room described "description". Initially, it has no exits. 
@@ -29,6 +30,27 @@ public class Room
     {
         this.description = description;
         exits = new HashMap<>();
+        objects = new Object[5];
+    }
+    public void addObject(Object obj){
+        boolean added = false;
+        for (int i =0; i < objects.length && !added; i++){
+            if(objects[i] != null){
+                objects[i] = obj;
+                System.out.println("Added!");
+                added = true;
+            }
+        }
+    }
+    public void rmObject(Object obj){
+        for (int i =0; i < objects.length; i++){
+            if(objects[i].equals(obj)){
+                objects[i] = null;
+            }
+        }
+    }
+    public Object[] getObjects(){
+        return objects;
     }
     public Room getExit(String direction){
         return exits.get(direction);

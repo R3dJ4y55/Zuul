@@ -18,6 +18,7 @@ public class Game
 {
     private Parser parser;
     private Player p;
+    private Object coin;
     
     /**
      * Create the game and initialise its internal map.
@@ -76,6 +77,8 @@ public class Game
         
         // Washroom
         washroom.setExits("west", store); // west
+        coin = new Object("Coin", 3, 25);
+        washroom.addObject(coin);
 
         // Player
         p = new Player("Artyom", 30, hub);
@@ -144,14 +147,63 @@ public class Game
             wantToQuit = quit(command);
         }
         else if (commandWord.equals("look")) {
-            System.out.println("You look around the room:");
-            System.out.printf("\n %s \n", p.getCurrentRoom().getLongDescription());
+            look();
         }
         else if (commandWord.equals("eat")) {
             System.out.println("You stop and eat.");
         }
+        else if (commandWord.equals("take")) {
+            takeObj(command);
+        }
+        else if (commandWord.equals("drop")) {
+            dropObj(command);
+        }
 
         return wantToQuit;
+    }
+    
+    private void look(){
+        System.out.println("You look around the room:");
+        System.out.printf("\n %s \n", p.getCurrentRoom().getLongDescription());
+        Object[] objects = p.getCurrentRoom().getObjects();
+        if(objects != null){
+            String objs = "";
+            for (Object obj : objects){
+                objs = objs + " " + obj.getTitle();
+            }
+            if (p.getCurrentRoom().getObjects().length != 0){
+                System.out.printf("\n You see the following on the floor: \n %s \n", objs);
+            } else {
+                System.out.printf("\n You see nothing on the floor. \n");
+            }
+        }   
+    }
+    
+    
+    /**
+     * Tells the player to pick up an object
+     * 
+     * @param command The object to pick up
+     */
+    private void takeObj(Command command){
+        if(!command.hasSecondWord()){
+            System.out.println("Take what?");
+        } else {
+            p.take(p.toObject(command.getSecondWord()));
+        }
+    }
+    
+    /**
+     * Tells the player to drop an object
+     * 
+     * @param command The object to drop
+     */
+    private void dropObj(Command command){
+        if(!command.hasSecondWord()){
+            System.out.println("Drop what?");
+        } else {
+            p.drop(p.toObject(command.getSecondWord()));
+        }
     }
 
     // implementations of user commands:
