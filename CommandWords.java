@@ -1,3 +1,4 @@
+import java.util.Arrays;
 /**
  * This class is part of the "World of Zuul" application. 
  * "World of Zuul" is a very simple, text based adventure game.  
@@ -24,12 +25,12 @@ public class CommandWords
         // nothing to do at the moment...
     }
     
-    public void showAll(){
+    public String showAll(){
         String validCmds = "";
         for (String s : validCommands){
             validCmds = validCmds + " " + s;
         }
-        System.out.println(validCmds);
+        return validCmds;
     }
 
     /**
@@ -40,7 +41,12 @@ public class CommandWords
     public static String[] getValidCommands(){
         return validCommands;
     }
-
+    
+    public String[] getCommandList()
+    {
+        String[] sortedCmds = //Arrays.sort(validCommands);
+        return sortedCmds;
+    }
     /**
      * Check whether a given String is a valid command word. 
      * @return true if a given string is a valid command,
