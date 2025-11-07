@@ -32,12 +32,16 @@ Q9:
 keySet() returns a Set that contains every key in the HashMap
 
 Q12:  
-!(./img/ObjDiagram.png "Object diagram, Q12")
+![Object Diagram for initial state](./img/ObjDiagram.png "Object diagram, Q12")
 
 Q13:  
 The currentRoom object and the exits objcet change, so does the position field in the reader object.
 
+Q14:  
+Yes. Because I still need to add functionality to the new command.
 
+Q18:  
+A pro would be that we no longer have to create an instance. A con is that it increases coupling by making the classes more dependant on each-other.
 
 
 

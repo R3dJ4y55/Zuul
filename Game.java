@@ -147,6 +147,9 @@ public class Game
             System.out.println("You look around the room:");
             System.out.printf("\n %s \n", currentRoom.getLongDescription());
         }
+        else if (commandWord.equals("eat")) {
+            System.out.println("You stop and eat.");
+        }
 
         return wantToQuit;
     }
@@ -160,11 +163,12 @@ public class Game
      */
     private void printHelp() 
     {
+        String cmds = "";
         System.out.println("You are lost. You are alone. You wander");
         System.out.println("around at the university.");
         System.out.println();
         System.out.println("Your command words are:");
-        System.out.println("   go quit help look");
+        parser.commands.showAll();
     }
 
     /** 

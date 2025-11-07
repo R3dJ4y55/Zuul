@@ -13,7 +13,7 @@ public class CommandWords
 {
     // A constant array that holds all valid command words.
     private static final String[] validCommands = {
-        "go", "quit", "help", "look"
+        "go", "quit", "help", "look", "eat"
     };
 
     /**
@@ -22,6 +22,23 @@ public class CommandWords
     public CommandWords()
     {
         // nothing to do at the moment...
+    }
+    
+    public void showAll(){
+        String validCmds = "";
+        for (String s : validCommands){
+            validCmds = validCmds + " " + s;
+        }
+        System.out.println(validCmds);
+    }
+
+    /**
+     * This is an artefact from a misinterpretation  of Q16
+     * 
+     * @return Returns the validCommands field
+     */
+    public static String[] getValidCommands(){
+        return validCommands;
     }
 
     /**
