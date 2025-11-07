@@ -13,7 +13,7 @@ The quit command quits the game.
 The help command displays a help menu with important information and explains the scenario  
 There are five rooms in the scenario  
 
-![Map of the five rooms](./map.png "Map")  
+![Map of the five rooms](./img/map.png "Map")  
 
 
 
@@ -30,6 +30,14 @@ The *Room* class represents the rooms, it specifies a room's description and exi
 
 Q9:  
 keySet() returns a Set that contains every key in the HashMap
+
+Q12:  
+!(./img/ObjDiagram.png "Object diagram, Q12")
+
+Q13:  
+The currentRoom object and the exits objcet change, so does the position field in the reader object.
+
+
 
 
 
