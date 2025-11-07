@@ -28,7 +28,8 @@ The *CommandWords* class stores the list of known command words as an array of t
 
 The *Room* class represents the rooms, it specifies a room's description and exits.  
 
-Q9:
+Q9:  
+keySet() returns a Set that contains every key in the HashMap
 
 
 
