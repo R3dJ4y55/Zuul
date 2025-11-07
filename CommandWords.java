@@ -14,7 +14,7 @@ public class CommandWords
 {
     // A constant array that holds all valid command words.
     private static final String[] validCommands = {
-        "go", "quit", "help", "look", "eat"
+        "go", "quit", "help", "look", "eat", "take", "drop"
     };
 
     /**
@@ -42,11 +42,6 @@ public class CommandWords
         return validCommands;
     }
     
-    public String[] getCommandList()
-    {
-        String[] sortedCmds = //Arrays.sort(validCommands);
-        return sortedCmds;
-    }
     /**
      * Check whether a given String is a valid command word. 
      * @return true if a given string is a valid command,
